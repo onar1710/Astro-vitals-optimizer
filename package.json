@@ -1,0 +1,73 @@
+{
+  "name": "astro-core-vitals-optimizer",
+  "displayName": "Astro Core Web Vitals Optimizer",
+  "description": "Optimiza tu sitio Astro en tiempo real para alcanzar 97+ en Core Web Vitals",
+  "version": "1.0.0",
+  "publisher": "tu-nombre",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Linters",
+    "Snippets",
+    "Other"
+  ],
+  "keywords": [
+    "astro",
+    "performance",
+    "core web vitals",
+    "optimization",
+    "lighthouse"
+  ],
+  "activationEvents": [
+    "onLanguage:astro",
+    "onLanguage:javascript",
+    "onLanguage:typescript"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "astroVitals.analyzeComponent",
+        "title": "Astro Vitals: Analizar Componente"
+      },
+      {
+        "command": "astroVitals.optimizeImages",
+        "title": "Astro Vitals: Optimizar Imágenes"
+      },
+      {
+        "command": "astroVitals.checkPerformance",
+        "title": "Astro Vitals: Check Performance Score"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "astro",
+        "path": "./snippets/astro-vitals.json"
+      }
+    ],
+    "configuration": {
+      "title": "Astro Core Vitals Optimizer",
+      "properties": {
+        "astroVitals.targetScore": {
+          "type": "number",
+          "default": 97,
+          "description": "Target Lighthouse performance score"
+        },
+        "astroVitals.autoSuggest": {
+          "type": "boolean",
+          "default": true,
+          "description": "Mostrar sugerencias automáticas"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "node extension.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.80.0"
+  }
+}
