@@ -1,1 +1,181 @@
-
+{
+  "Astro Optimized Image": {
+    "prefix": "opt-img",
+    "body": [
+      "import { Image } from \"astro:assets\";",
+      "import ${1:imgSrc} from \"${2:./image.jpg}\";",
+      "",
+      "<Image",
+      "  src={${1:imgSrc}}",
+      "  alt=\"${3:descripción}\"",
+      "  width={${4:800}}",
+      "  height={${5:600}}",
+      "  loading=\"${6|lazy,eager|}\"",
+      "  decoding=\"async\"",
+      "  format=\"webp\"",
+      "/>"
+    ],
+    "description": "✅ Imagen optimizada para 97+ en Core Web Vitals"
+  },
+  "Astro Optimized Layout": {
+    "prefix": "opt-layout",
+    "body": [
+      "---",
+      "import { ViewTransitions } from \"astro:transitions\";",
+      "---",
+      "<!DOCTYPE html>",
+      "<html lang=\"${1:es}\">",
+      "<head>",
+      "  <meta charset=\"UTF-8\">",
+      "  <meta name=\"viewport\" content=\"width=device-width\">",
+      "  <ViewTransitions />",
+      "  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
+      "  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>",
+      "  ${2}",
+      "</head>",
+      "<body>",
+      "  <slot />",
+      "</body>",
+      "</html>"
+    ],
+    "description": "🚀 Layout base para 97+ performance"
+  },
+  "Astro Critical CSS": {
+    "prefix": "opt-css",
+    "body": [
+      "<style is:inline>",
+      "  /* Critical CSS - Above the fold only */",
+      "  ${1:body { margin: 0; font-family: system-ui; \\}}",
+      "</style>",
+      "<link rel=\"stylesheet\" href=\"/styles/main.css\" media=\"print\" onload=\"this.media='all'\" />"
+    ],
+    "description": "⚡ Critical CSS para LCP optimizado"
+  },
+  "Astro Optimized Font Loading": {
+    "prefix": "opt-font",
+    "body": [
+      "<link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
+      "<link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>",
+      "<link",
+      "  href=\"https://fonts.googleapis.com/css2?family=${1:Inter}:wght@${2:400;700}&display=swap\"",
+      "  rel=\"stylesheet\"",
+      "  media=\"print\"",
+      "  onload=\"this.media='all'\"",
+      "/>"
+    ],
+    "description": "🔤 Carga de fuentes sin CLS"
+  },
+  "Astro Lazy Component": {
+    "prefix": "opt-lazy",
+    "body": [
+      "<${1:Component}",
+      "  client:${2|visible,idle,media|}",
+      "  ${3}",
+      "/>"
+    ],
+    "description": "💤 Componente lazy para mejor INP"
+  },
+  "Astro Optimized Script": {
+    "prefix": "opt-script",
+    "body": [
+      "<script ${1|defer,async|} src=\"${2:./script.js}\"></script>"
+    ],
+    "description": "📜 Script optimizado para no bloquear"
+  },
+  "Astro Hero Section (97+ Score)": {
+    "prefix": "opt-hero",
+    "body": [
+      "---",
+      "import { Image } from \"astro:assets\";",
+      "import heroImg from \"${1:./hero.jpg}\";",
+      "---",
+      "",
+      "<section class=\"hero\">",
+      "  <Image",
+      "    src={heroImg}",
+      "    alt=\"${2:Hero image}\"",
+      "    width={${3:1920}}",
+      "    height={${4:1080}}",
+      "    loading=\"eager\"",
+      "    fetchpriority=\"high\"",
+      "    decoding=\"async\"",
+      "    format=\"webp\"",
+      "  />",
+      "  <div class=\"hero-content\">",
+      "    <h1>${5:Título}</h1>",
+      "    <p>${6:Descripción}</p>",
+      "  </div>",
+      "</section>",
+      "",
+      "<style is:inline>",
+      "  .hero { position: relative; width: 100%; height: 100vh; }",
+      "  .hero img { width: 100%; height: 100%; object-fit: cover; }",
+      "  .hero-content { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; align-items: center; }",
+      "</style>"
+    ],
+    "description": "🎯 Hero section optimizado para LCP perfecto"
+  },
+  "Astro Config Performance": {
+    "prefix": "opt-config",
+    "body": [
+      "import { defineConfig } from 'astro/config';",
+      "",
+      "export default defineConfig({",
+      "  output: '${1|static,server,hybrid|}',",
+      "  compressHTML: true,",
+      "  build: {",
+      "    inlineStylesheets: 'auto',",
+      "  },",
+      "  vite: {",
+      "    build: {",
+      "      cssMinify: 'lightningcss',",
+      "      rollupOptions: {",
+      "        output: {",
+      "          manualChunks: {",
+      "            'vendor': ['react', 'react-dom']",
+      "          }",
+      "        }",
+      "      }",
+      "    }",
+      "  },",
+      "  image: {",
+      "    service: {",
+      "      entrypoint: 'astro/assets/services/sharp'",
+      "    }",
+      "  }",
+      "});"
+    ],
+    "description": "⚙️ Configuración Astro para máximo performance"
+  },
+  "Astro Prefetch Link": {
+    "prefix": "opt-link",
+    "body": [
+      "<a href=\"${1:/page}\" data-astro-prefetch=\"${2|viewport,hover,tap,load|}\">${3:Link}</a>"
+    ],
+    "description": "🔗 Link con prefetch para navegación instantánea"
+  },
+  "Astro SEO Head Complete": {
+    "prefix": "opt-seo",
+    "body": [
+      "<head>",
+      "  <meta charset=\"UTF-8\">",
+      "  <meta name=\"viewport\" content=\"width=device-width\">",
+      "  <title>${1:Título}</title>",
+      "  <meta name=\"description\" content=\"${2:Descripción}\">",
+      "  ",
+      "  <!-- Preconnect críticos -->",
+      "  <link rel=\"preconnect\" href=\"https://fonts.googleapis.com\">",
+      "  <link rel=\"preconnect\" href=\"https://fonts.gstatic.com\" crossorigin>",
+      "  ",
+      "  <!-- DNS Prefetch -->",
+      "  <link rel=\"dns-prefetch\" href=\"${3:https://api.example.com}\">",
+      "  ",
+      "  <!-- Favicon optimizado -->",
+      "  <link rel=\"icon\" type=\"image/svg+xml\" href=\"/favicon.svg\">",
+      "  ",
+      "  ${4}",
+      "</head>"
+    ],
+    "description": "🎨 Head completo optimizado para Core Web Vitals"
+  }
+}
